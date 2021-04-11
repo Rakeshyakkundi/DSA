@@ -1,6 +1,7 @@
 from typing import Counter
 
 
+
 class Node:
     def __init__(self,data):
         self.data = data
@@ -46,7 +47,20 @@ class LinkedList:
             fast = fast.next.next
         prev.next = prev.next.next
 
+    # def recursion_palindrome(self):
+    #     pass
+        
+    def palindrome_reverse(self):
+        prev = None
+        current = self.head
+        while current.next != None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        current.next = prev
 
+        
 
 
 s1 = Node(1)
@@ -54,14 +68,13 @@ link = LinkedList()
 link.insert(s1)         
 link.create(2)          
 link.create(3)          
-link.create(4)
-link.create(5)
+link.create(2)
+link.create(1)
 # for i in range(6,21):
 #     link.create(i)          
 # link.dirplay()
-a = link.mid_find()
-print("mid value :",a)
-link.mid_del()
-link.dirplay()
-
-
+# a = link.mid_find()
+# print("mid value :",a)
+# link.mid_del()
+# link.dirplay()
+link.palindrome_reverse()
