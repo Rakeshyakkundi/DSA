@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self,data):
         self.data = data
@@ -89,17 +90,42 @@ class LinkList:
             self.head = self.head.next
             return self.head.data
         
-                  
+    def mergeSort(self,current):
+        if current == None or current.next == None:
+            return current
+        prev = None
+        slow = current
+        fast = current
+        while fast != None and fast.next != None:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        prev.next = None
+        h1 = self.mergeSort(current)
+        h2 = self.mergeSort(slow)
+        return self.merge(h1,h2)
+    def merge(self,h1,h2):
+        if h1==None  or h2 == None:
+            return  h1
+        if h1.data < h2.data:
+            h1.next = self.merge(h1.next,h2)
+            return h1
+        else:
+            h2.next = self.merge(h1,h2.next)
+            return h2
+    def dispach(self,a):
+        while True:
+            if a==None:
+                break
+            print(a.data)
+            a = a.next
+
         
 
-
-
-        
-
-s1 = Node(1)
-s2 = Node(3) 
+s1 = Node(5)
+s2 = Node(4) 
 s3 = Node(3) 
-s4 = Node(3) 
+s4 = Node(2) 
 s5 = Node(1)
 # None
 
@@ -118,11 +144,11 @@ link.insert(s1);link.insert(s2);link.insert(s3);link.insert(s4);link.insert(s5)
 # link.reverse()
 # link.display()
 # link.M_and_N(3,2)
-# for i in range(9,0,-1):
-#     n = Node(i)
-#     link.create(n)
+for i in range(9,0,-1):
+    n = Node(i)
+    link.create(n)
 link.display()
-
+print()
 # recursion reverse
 # link.is_reverse(link.head)
 
@@ -130,4 +156,6 @@ link.display()
 # a = link.is_palindrome(link.head,link.head)
 # print(a)
 
-# remove duplicates
+# merge sort linklist
+a = link.mergeSort(link.head)
+link.dispach(a)
