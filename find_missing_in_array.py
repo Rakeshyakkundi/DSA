@@ -1,6 +1,6 @@
 ls = [1,2,3,4,5,6,7,8,9,10,11,2,14, 5,  16,17,18,20,21,2,24,  25,26,27,5];missing = [];a=1
 #     0 1 2 3 4 5 6 7 8 9  10 11 12 13  14 15 16 17 18 19 20  21 22 23 24
-for i in range(1,ls[len(ls)-1]):
+for i in range(0,ls[len(ls)-1]):
     if i not in ls:
         missing.append(i)
 
