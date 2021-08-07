@@ -59,7 +59,7 @@ def postOrder(rootNode):
 # print(postOrder(root))
 
 
-#  bfs dfid = i = 3(till level 3)
+#  bfs
 from queueLinkList import Queue,Node
 
 def levelorder(rootNode):
